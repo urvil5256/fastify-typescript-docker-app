@@ -1,7 +1,9 @@
+import {} from "@fastify/sensible";
+import { FastifyPluginAsync } from "fastify";
 import { OrganizationSchema } from "../../modals";
 import getAllOrganizations from "../../services/organizationService";
 
-export const OrganizationRoute = async (api) => {
+export const OrganizationRoute: FastifyPluginAsync = async (api) => {
   const schema = {
     tags: ["Organization"],
     sequrity: [{ apiKey: [] }],

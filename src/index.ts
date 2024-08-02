@@ -1,6 +1,6 @@
-import fastify, { FastifyInstance, RegisterOptions } from "fastify";
-import dbConnect from "./plugins/dbPlugins";
+import fastify, { FastifyInstance } from "fastify";
 import { SWAGGER_URL } from "./config";
+import dbConnect from "./plugins/dbPlugins";
 import { swaggerPlugins } from "./plugins/swagger/index";
 import * as routeModules from "./routes/routes";
 

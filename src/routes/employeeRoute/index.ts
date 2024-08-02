@@ -1,7 +1,9 @@
+import {} from "@fastify/sensible";
+import { FastifyPluginAsync } from "fastify";
 import { OrganizationSchema } from "../../modals";
 import getAllEmployee from "../../services/employeeService";
 
-export const EmployeeRoute = async (api) => {
+export const EmployeeRoute: FastifyPluginAsync = async (api) => {
   const schema = {
     tags: ["Employee"],
     sequrity: [{ apiKey: [] }],

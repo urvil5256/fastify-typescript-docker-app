@@ -1,6 +1,7 @@
 const getAllUsers = async (instance) => {
+  console.log(" >>>>>>>>>>>>>>>>>>:");
   const { rows } = await instance.pg.query("SELECT * FROM users");
-  return await rows;
+  return rows;
 };
 
 export default getAllUsers;

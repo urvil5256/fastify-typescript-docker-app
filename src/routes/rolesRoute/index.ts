@@ -1,7 +1,9 @@
+import {} from "@fastify/sensible";
+import { FastifyPluginAsync } from "fastify";
 import { RoleSchema } from "../../modals";
 import getAllRoles from "../../services/rolesService";
 
-export const RoleRoute = async (api) => {
+export const RoleRoute: FastifyPluginAsync = async (api) => {
   const schema = {
     tags: ["Roles"],
     sequrity: [{ apiKey: [] }],

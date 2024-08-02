@@ -1,15 +1,24 @@
-import { UserSchema } from "../../modals";
+import {} from "@fastify/sensible";
+import { FastifyPluginAsync } from "fastify";
 import getAllUsers from "../../services/userService";
 
-export const UserRoute = async (api) => {
+export const UserRoute: FastifyPluginAsync = async (api) => {
   const schema = {
     tags: ["Users"],
     sequrity: [{ apiKey: [] }],
-    response: {
-      200: UserSchema,
-    },
+    // response: {
+    //   200: {
+    //     type: "array",
+    //     properties: {
+    //       type: "object",
+    //       UserSchema: {
+    //         id: { type: "string" },
+    //       },
+    //     },
+    //   },
+    // },
   };
-  await api.get("/users", { schema }, async () => {
+  api.get("/users", { schema }, async () => {
     try {
       return await getAllUsers(api);
     } catch (error: any) {
