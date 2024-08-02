@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.json",
+    "dev": "ts-node-dev --exit-child ./src/index.ts",
+    "start": "tsc && nodemon ./build/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@fastify/postgres": "^5.2.2",
+    "@fastify/swagger": "^8.15.0",
+    "@fastify/swagger-ui": "^4.0.1",
+    "dotenv": "^16.4.5",
+    "fastify": "^4.28.1",
+    "pg": "^8.12.0"
+  }
+}
