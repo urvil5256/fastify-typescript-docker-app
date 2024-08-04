@@ -1,8 +1,8 @@
 import fastify, { FastifyInstance } from "fastify";
 import { SWAGGER_URL } from "./config";
-import dbConnect from "./plugins/dbPlugins";
 import { swaggerPlugins } from "./plugins/swagger/index";
-import * as routeModules from "./routes/routes";
+import * as routeModules from "./routes";
+import dbConnect from "./plugins/database";
 
 const server = fastify({ logger: true });
 

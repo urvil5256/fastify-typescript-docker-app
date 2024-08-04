@@ -1,19 +1,19 @@
 import {} from "@fastify/sensible";
 import { FastifyPluginAsync } from "fastify";
-import { RoleSchema } from "../../modals";
-import getAllRoles from "../../services/rolesService";
+import { OrganizationSchema } from "../../modals";
+import getAllDepartment from "../../services/department";
 
-export const RoleRoute: FastifyPluginAsync = async (api) => {
+export const DepartmentRoute: FastifyPluginAsync = async (api) => {
   const schema = {
-    tags: ["Roles"],
+    tags: ["Department"],
     sequrity: [{ apiKey: [] }],
     response: {
-      200: RoleSchema,
+      200: OrganizationSchema,
     },
   };
-  api.get("/roles", { schema }, async () => {
+  api.get("/departments", { schema }, async () => {
     try {
-      return await getAllRoles(api);
+      return await getAllDepartment(api);
     } catch (error) {
       api.log.error("Error::", error);
       if (error instanceof Error) {

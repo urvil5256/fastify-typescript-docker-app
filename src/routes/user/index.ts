@@ -1,6 +1,6 @@
 import {} from "@fastify/sensible";
 import { FastifyPluginAsync } from "fastify";
-import getAllUsers from "../../services/userService";
+import getAllUsers from "../../services/user";
 
 export const UserRoute: FastifyPluginAsync = async (api) => {
   const schema = {

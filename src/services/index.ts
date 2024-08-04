@@ -1,5 +1,5 @@
-export * as User from "./userService";
-export * as Roles from "./rolesService";
-export * as Department from "./departmentService";
-export * as Employee from "./employeeService";
-export * as Organization from "./organizationService";
+export * as User from "./user";
+export * as Roles from "./role";
+export * as Department from "./department";
+export * as Employee from "./employee";
+export * as Organization from "./organization";
