@@ -1,4 +1,4 @@
-export interface EmployeeSchema {
+export type Employee = {
   id: string;
   employee_name: string;
   department_id: string;
@@ -12,5 +12,12 @@ export interface EmployeeSchema {
   email: string;
   start_date: Date;
   end_date: Date;
-}
+};
 [];
+
+export enum Deparment {
+  Account = "account",
+  Admin = "admin",
+  HR = "hr",
+  IT = "it",
+}

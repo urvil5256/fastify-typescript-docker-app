@@ -1,5 +1,6 @@
 // Database connection plugin
 import dotenv from "dotenv";
+import { DATABASE_URL } from "../../config";
 
 const fastifyPostgres = require("@fastify/postgres");
 dotenv.config();
@@ -7,7 +8,7 @@ dotenv.config();
 const dbConnect = async (server) => {
   try {
     await server.register(fastifyPostgres, {
-      connectionString: `postgres://${process.env.POSTGRES_USER}:${process.env.POSTGRES_PASSWORD}@${process.env.POSTGRES_HOST}:${process.env.POSTGRES_PORT}/${process.env.POSTGRES_DB}`,
+      connectionString: DATABASE_URL,
     });
     server.log.info("Successfully connected to the database");
   } catch (error) {

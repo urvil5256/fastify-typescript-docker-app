@@ -1,6 +1,6 @@
-export interface RoleSchema {
+export type Role = {
   id: string;
   role_name: string;
   description: string;
-}
+};
 [];
