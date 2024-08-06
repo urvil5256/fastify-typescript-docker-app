@@ -22,4 +22,4 @@ services:
     env_file:
       - .env
     volumes:
-      - ./src/plugins/dbMigration:/docker-entrypoint-initdb.d/dbMigration.sql
+      - ./db/initdb.sql:/docker-entrypoint-initdb.d/initdb.sql

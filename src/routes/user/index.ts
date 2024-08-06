@@ -25,7 +25,7 @@ export const UserRoute: FastifyPluginAsync = async (api) => {
       api.log.error("Error::", error);
       if (error instanceof Error) {
         throw api.httpErrors.internalServerError(
-          `Error while fetching sections:: ${error.message}`
+          `Error while fetching sections:: ${error.message}`,
         );
       }
       throw error;
