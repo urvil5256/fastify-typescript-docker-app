@@ -6,7 +6,7 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "rootDir": "./src",
-    "outDir": "./build",
+    "outDir": "./dist",
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": false,
     "strict": true,

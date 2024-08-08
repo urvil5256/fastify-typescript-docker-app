@@ -1,14 +1,18 @@
 {
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.json",
-    "dev": "ts-node-dev --exit-child ./src/index.ts",
+    "dev": "dotenv -- ts-node-dev --exit-child ./src/index.ts",
     "start": "tsc && nodemon ./build/index.js",
     "start:local-db": "tsc workspace @shared-db start:local-db",
     "format": "prettier --check .",
-    "format:fix": "prettier --write --list-different ."
+    "format:fix": "prettier --write --list-different .",
+    "migrate:make": "dotenv -- knex migrate:make --knexfile ./src/plugins/database/knexfile.ts -x ts",
+    "migrate": "dotenv -- knex migrate:latest --knexfile ./src/plugins/database/knexfile.ts",
+    "rollback": "dotenv -- knex migrate:rollback --knexfile ./src/plugins/database/knexfile.ts"
   },
   "devDependencies": {
     "@types/node": "^22.0.2",
+    "dotenv-cli": "^7.4.2",
     "prettier": "^3.3.3",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.5.4"

@@ -6,8 +6,8 @@ export type OrganizationSchema = {
   city: string;
   state: string;
   country: string;
-  postal_code: string;
-  phone: string;
+  postal_code: number;
+  phone: number;
   email: string;
 };
 [];

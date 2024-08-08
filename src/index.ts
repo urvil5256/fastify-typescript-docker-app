@@ -2,14 +2,11 @@ import fastify, { FastifyInstance } from "fastify";
 import { SWAGGER_URL } from "./config";
 import { swaggerPlugins } from "./plugins/swagger/index";
 import * as routeModules from "./routes";
-import dbConnect from "./plugins/database";
 
 const server = fastify({ logger: true });
 
 const start = async () => {
   try {
-    await dbConnect(server);
-
     // Routes
     await swaggerPlugins(server, { routePrefix: SWAGGER_URL });
 
