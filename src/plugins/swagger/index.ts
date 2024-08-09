@@ -15,18 +15,19 @@ const swaggerPlugins: FastifyPluginAsync<{
       },
       components: {
         securitySchemes: {
-          apiKey: {
-            type: "apiKey",
-            name: "apiKey",
-            in: "header",
+          Authorization: {
+            type: "http",
+            scheme: "bearer",
+            bearerFormat: "JWT",
           },
         },
       },
+      security: [],
     },
   });
   await api.register(fastifySwaggerUi, {
     routePrefix: routePrefix,
-    uiConfig: { docExpansion: "full", deepLinking: false },
+    uiConfig: { docExpansion: "list", deepLinking: false },
     uiHooks: {
       onRequest: function (request, reply, next) {
         next();

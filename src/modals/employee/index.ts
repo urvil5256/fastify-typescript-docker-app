@@ -1,7 +1,7 @@
-export type Employee = {
+export interface Employee {
   id: string;
   employee_name: string;
-  department_id: string;
+  department_id?: string;
   salary: number;
   address: string;
   city: string;
@@ -10,14 +10,6 @@ export type Employee = {
   postal_code: number;
   phone: number;
   email: string;
-  created_at: Date;
-  updated_at: Date;
-};
-[];
-
-export enum Deparment {
-  Account = "account",
-  Admin = "admin",
-  HR = "hr",
-  IT = "it",
+  created_at?: Date;
+  updated_at?: Date;
 }

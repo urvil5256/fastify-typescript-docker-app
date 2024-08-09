@@ -1,6 +1,5 @@
-export type Role = {
+export interface Role {
   id: string;
   role_name: string;
-  description: string;
-};
-[];
+  description?: string;
+}

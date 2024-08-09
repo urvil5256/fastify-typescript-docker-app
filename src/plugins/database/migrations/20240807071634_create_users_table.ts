@@ -14,7 +14,7 @@ export async function up(knex: Knex): Promise<void> {
     // foreign keys
     t.uuid("role_id").nullable();
     t.foreign("role_id").references("id").inTable("roles").onDelete("SET NULL");
-
+    t.string("user_role", 100).nullable();
     // Timestamps
     t.timestamps(true, true); // Automatically create `created_at` and `updated_at`
 

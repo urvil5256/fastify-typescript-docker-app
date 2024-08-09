@@ -1,17 +1,14 @@
-export type Users = {
-  id: string;
+import { Roles } from "../../utils/enums";
+
+export interface Users {
+  id?: string;
   firstName: string;
   lastName: string;
   email: string;
   password: string;
   prefix: string;
-  role_id: string;
-  created_at: Date;
-  updated_at: Date;
-};
-[];
-
-export enum Roles {
-  Admin = "admin",
-  Empoyee = "employee",
+  role_id?: string;
+  created_at?: Date;
+  updated_at?: Date;
+  user_role?: Roles;
 }

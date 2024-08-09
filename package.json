@@ -1,9 +1,8 @@
 {
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.json",
-    "dev": "dotenv -- ts-node-dev --exit-child ./src/index.ts",
-    "start": "tsc && nodemon ./build/index.js",
-    "start:local-db": "tsc workspace @shared-db start:local-db",
+    "dev": "dotenv -- nodemon ./src/index.ts",
+    "start": "tsc && nodemon ./dist/index.js",
     "format": "prettier --check .",
     "format:fix": "prettier --write --list-different .",
     "migrate:make": "dotenv -- knex migrate:make --knexfile ./src/plugins/database/knexfile.ts -x ts",
@@ -24,7 +23,9 @@
     "@fastify/swagger-ui": "^4.0.1",
     "dotenv": "^16.4.5",
     "fastify": "^4.28.1",
+    "jsonwebtoken": "^9.0.2",
     "knex": "^3.1.0",
+    "nodemon": "^3.1.4",
     "pg": "^8.12.0",
     "postgrator": "^7.2.0",
     "sqlite3": "^5.1.7"

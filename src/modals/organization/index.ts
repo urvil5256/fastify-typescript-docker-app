@@ -1,7 +1,7 @@
-export type OrganizationSchema = {
+export interface OrganizationSchema {
   id: string;
   organization_name: string;
-  description: string;
+  description?: string;
   address: string;
   city: string;
   state: string;
@@ -9,5 +9,4 @@ export type OrganizationSchema = {
   postal_code: number;
   phone: number;
   email: string;
-};
-[];
+}

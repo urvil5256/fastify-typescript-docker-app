@@ -21,7 +21,7 @@ export async function up(knex: Knex): Promise<void> {
     // indicies
     t.index(
       ["organization_name", "email"],
-      "organizations_organization_name_email_index",
+      "organizations_organization_name_email_index"
     );
   });
 }

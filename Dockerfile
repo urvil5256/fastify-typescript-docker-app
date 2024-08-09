@@ -17,4 +17,4 @@ RUN npm run build
 EXPOSE 8080
 
 # Command to run your application
-CMD ["npm", "run", "dev"]
+CMD ["npm", "start"]

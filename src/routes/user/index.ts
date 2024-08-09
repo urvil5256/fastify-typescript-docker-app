@@ -1,34 +1,39 @@
-import {} from "@fastify/sensible";
 import { FastifyPluginAsync } from "fastify";
-import getAllUsers from "../../services/user";
+import { getAllUsers, getUserById } from "../../services/user";
+import { UserSchema } from "../../modals";
 
 export const UserRoute: FastifyPluginAsync = async (api) => {
   const schema = {
     tags: ["Users"],
-    sequrity: [{ apiKey: [] }],
-    // response: {
-    //   200: {
-    //     type: "array",
-    //     properties: {
-    //       type: "object",
-    //       UserSchema: {
-    //         id: { type: "string" },
-    //       },
-    //     },
-    //   },
-    // },
+    response: {
+      200: UserSchema,
+    },
   };
   api.get("/users", { schema }, async () => {
     try {
-      return await getAllUsers(api);
+      return await getAllUsers();
     } catch (error: any) {
       api.log.error("Error::", error);
       if (error instanceof Error) {
+        console.log("catch :", error);
         throw api.httpErrors.internalServerError(
-          `Error while fetching sections:: ${error.message}`,
+          `Error while fetching sections:: ${error.message}`
         );
       }
       throw error;
+    }
+  });
+
+  api.get("/users/:id", { schema }, async (req) => {
+    try {
+      return await getUserById(req);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.log("catch :", error);
+        throw api.httpErrors.internalServerError(
+          `Error while fetching sections:: ${error.message}`
+        );
+      }
     }
   });
 };
